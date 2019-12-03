@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/carlosgit2016/nodejs-runner",
   "author": "Carlos Gabriel Goiani Flor <c0604866@vale.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "azure-devops-node-api": "^9.0.1"
+  }
 }
