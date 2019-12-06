@@ -6,6 +6,11 @@
   "author": "Carlos Gabriel Goiani Flor <c0604866@vale.com>",
   "license": "MIT",
   "dependencies": {
-    "azure-devops-node-api": "^9.0.1"
+    "azure-devops-node-api": "^9.0.1",
+    "azure-pipelines-task-lib": "^2.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.2",
+    "@types/q": "^1.5.2"
   }
 }
