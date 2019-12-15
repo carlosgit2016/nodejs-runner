@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/carlosgit2016/nodejs-runner",
+  "author": "Carlos Gabriel Goiani Flor <c0604866@vale.com>",
+  "license": "MIT",
+  "scripts": {
+    "send:task": "node sendTask.js"
+  },
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.2",
+    "@types/q": "^1.5.2"
+  }
+}
