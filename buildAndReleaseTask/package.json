@@ -6,7 +6,8 @@
   "author": "Carlos Gabriel Goiani Flor <c0604866@vale.com>",
   "license": "MIT",
   "scripts": {
-    "send:task": "node sendTask.js"
+    "send:task": "node sendTask.js",
+    "test": "export NODE_ENV=DEV&& tsc&& node dist/sample.js"
   },
   "dependencies": {
     "azure-pipelines-task-lib": "^2.9.3",
