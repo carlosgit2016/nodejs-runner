@@ -12,6 +12,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
+"@types/tmp@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.1.0.tgz#19cf73a7bcf641965485119726397a096f0049bd"
+  integrity sha512-6IwZ9HzWbCq6XoQWhxLpDjuADodH/MKXRUIDFudvgjcVdjFknvmR+DNsoUeer4XPrEnrZs04Jj+kfV9pFsrhmA==
+
 azure-pipelines-task-lib@^2.9.3:
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-2.9.3.tgz#7f62a1de99bace97b840b7ffe54e7712cfc2ba84"
@@ -74,7 +79,14 @@ shelljs@^0.3.0:
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.3.0.tgz#3596e6307a781544f591f37da618360f31db57b1"
   integrity sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E=
 
-uuid@^3.0.1:
+uuid@3.3.3, uuid@^3.0.1:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
+
+uuidv4@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/uuidv4/-/uuidv4-6.0.0.tgz#af64d9d0b6e5cc42675376622dc386f06d7461bb"
+  integrity sha512-KvtCP/4TGL1lU3CviYgWsSiKtJ+vi7FyJ0o+9RIGmJDVw1+O0lM+6pX127t5R6+EHzHOBnzG8zfWUufB4iECRw==
+  dependencies:
+    uuid "3.3.3"
