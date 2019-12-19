@@ -5,37 +5,19 @@ import "dotenv/config";
 //import tl from 'azure-pipelines-task-lib/task';
 const tl = require("azure-pipelines-task-lib/task");
 
-//printInputs("ScriptSource", "ScriptPath", "InlineScript", "Arguments", "WorkingDirectory");
-
-
 async function run() {
     printStartingMessage();
-    const scriptSource = getVariableValue("ScriptSource", true, TypeFieldTask.RADIO);
-    console.log(scriptSource);
-    
-    let pathFileToExecute: string | undefined = "";
-    if (scriptSource === "FilePath") {
-        const input_scriptPath = getVariableValue("ScriptPath", true, TypeFieldTask.FILE_PATH);
-        pathFileToExecute = path.normalize(<string>input_scriptPath);
-    }
-    else if (scriptSource === "Inline") {
-        const input_inlineScript = getVariableValue("InlineScript", true, TypeFieldTask.MULTI_LINE);
-        pathFileToExecute = util.createTemporaryFile("/tmp",input_inlineScript);
-    }
+    const scriptSource = <string>getVariableValue("ScriptSource", true, TypeFieldTask.RADIO);
 
     try {
-        //Execute Javascript File
+        const pathFileToExecute = definePathFileToExecute(scriptSource);
         let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecute}`);
         console.log(execResult);
         success("Finishing JS Script");
     } catch (error) {
-        tl.logIssue(tl.IssueType.Error, "Problem running file: " + pathFileToExecute + "Error: \n" + error)
+        fail("Problem running command, Error: \n" + error);
     }
 }
-
-/* function printInputs(...inputsNames: string[]) {
-    inputsNames.forEach(inputName => console.log(`${inputName}: ${getVariableValue(inputName, false)}`));
-} */
 
 run();
 
@@ -43,8 +25,25 @@ function printStartingMessage() {
     console.log("========================== Starting Command Output ===========================");
 }
 
+function definePathFileToExecute(scriptSource: string): string {
+    if (scriptSource === "FilePath") {
+        const input_scriptPath = getVariableValue("ScriptPath", true, TypeFieldTask.FILE_PATH);
+        return path.normalize(<string>input_scriptPath);
+    }
+    else if (scriptSource === "Inline") {
+        const input_inlineScript = getVariableValue("InlineScript", true, TypeFieldTask.MULTI_LINE);
+        const pathFileToExecute = util.createTemporaryFile(<string>process.env.AGENT_TEMPDIRECTORY, input_inlineScript);
+        console.log(`Created temp file: ${pathFileToExecute}`);
+        return pathFileToExecute;
+    } else throw "Problem to define a file path to execute";
+}
+
 function success(message: string, done?: boolean | undefined) {
     tl.setResult(tl.TaskResult.Succeeded, message, done);
+}
+
+function fail(message: string, done?: boolean | undefined) {
+    tl.logIssue(tl.IssueType.Error, message, done);
 }
 
 function getVariableValue(name: string, required?: boolean, type?: TypeFieldTask): string | undefined {

@@ -1,7 +1,8 @@
 const { execSync } = require("child_process");
 import fs from 'fs';
 import { uuid } from 'uuidv4';
-import { fileURLToPath } from 'url';
+import tmp from 'tmp';
+
 
 function execSyncEncodingUtf8AndPrint(command: string): void {
     return console.log(execSyncEncodingUtf8(command));
@@ -16,7 +17,8 @@ function execSyncEncodingUtf8(command: string): string {
 }
 
 function createTemporaryFile(path: string, data: any) {
-    const filePath = `${path}/${uuid()}/${uuid()}.js`;
+    const dirPath: tmp.DirResult = tmp.dirSync({ prefix: "taskrunner" });
+    const filePath: string = path.normalize(`${dirPath.name}/${uuid()}.js`);
     fs.writeFileSync(filePath, data, { encoding: "utf8" });
     return filePath;
 }
