@@ -1,6 +1,5 @@
 import { TypeFieldTask } from "./model/TypeFieldTask";
 import util from './util/util';
-import path from 'path';
 import "dotenv/config";
 //import tl from 'azure-pipelines-task-lib/task';
 const tl = require("azure-pipelines-task-lib/task");
@@ -11,7 +10,8 @@ async function run() {
 
     try {
         const pathFileToExecute = definePathFileToExecute(scriptSource);
-        let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecute}`);
+        const pathFileToExecuteNormalized = util.normalizeAndPreviousCheckPath(pathFileToExecute);
+        let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecuteNormalized}`);
         console.log(execResult);
         success("Finishing JS Script");
     } catch (error) {
@@ -28,7 +28,7 @@ function printStartingMessage() {
 function definePathFileToExecute(scriptSource: string): string {
     if (scriptSource === "FilePath") {
         const input_scriptPath = getVariableValue("ScriptPath", true, TypeFieldTask.FILE_PATH);
-        return path.normalize(<string>input_scriptPath);
+        return (<string>input_scriptPath);
     }
     else if (scriptSource === "Inline") {
         const input_inlineScript = getVariableValue("InlineScript", true, TypeFieldTask.MULTI_LINE);
