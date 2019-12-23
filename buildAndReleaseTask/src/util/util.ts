@@ -30,9 +30,13 @@ function normalizeAndPreviousCheckPath(filePath: string): string {
     return pathNormalized;
 }
 
+function setWorkingDirectory(path: string): void {
+    process.chdir(path);
+}
 export default {
     execSyncEncodingUtf8AndPrint,
     execSyncEncodingUtf8,
     createTemporaryFile,
-    normalizeAndPreviousCheckPath
+    normalizeAndPreviousCheckPath,
+    setWorkingDirectory
 }
