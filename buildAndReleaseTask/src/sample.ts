@@ -12,6 +12,7 @@ async function run() {
         const args: string | undefined = getArgumentsInput();
         const pathFileToExecute = definePathFileToExecute(scriptSource);
         const pathFileToExecuteNormalized = util.normalizeAndPreviousCheckPath(pathFileToExecute);
+        setWorkingDirectoryIfExists();
         let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecuteNormalized} ${args ? args : ""}`);
         console.log(execResult);
         success("Finishing JS Script");
@@ -43,6 +44,12 @@ function getArgumentsInput(): string | undefined {
     let args: string | undefined = getVariableValue("Arguments", false, TypeFieldTask.STRING);
     if(!args) return;
     return args;
+}
+
+function setWorkingDirectoryIfExists() {
+    const workingDirectory = getVariableValue("WorkingDirectory");
+    if(!workingDirectory) return;
+    util.setWorkingDirectory(workingDirectory);
 }
 
 function success(message: string, done?: boolean | undefined) {
