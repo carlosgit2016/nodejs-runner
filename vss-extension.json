@@ -2,8 +2,8 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "Node JS Script Runner",
-    "version": "0.0.1",
-    "publisher": "Carlos Flor",
+    "version": "0.4.3",
+    "publisher": "CARLOSFLOR",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
