@@ -9,9 +9,10 @@ async function run() {
     const scriptSource = <string>getVariableValue("ScriptSource", true, TypeFieldTask.RADIO);
 
     try {
+        const args: string | undefined = getArgumentsInput();
         const pathFileToExecute = definePathFileToExecute(scriptSource);
         const pathFileToExecuteNormalized = util.normalizeAndPreviousCheckPath(pathFileToExecute);
-        let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecuteNormalized}`);
+        let execResult: string = util.execSyncEncodingUtf8(`node ${pathFileToExecuteNormalized} ${args ? args : ""}`);
         console.log(execResult);
         success("Finishing JS Script");
     } catch (error) {
@@ -36,6 +37,12 @@ function definePathFileToExecute(scriptSource: string): string {
         console.log(`Created temp file: ${pathFileToExecute}`);
         return pathFileToExecute;
     } else throw "Problem to define a file path to execute";
+}
+
+function getArgumentsInput(): string | undefined {
+    let args: string | undefined = getVariableValue("Arguments", false, TypeFieldTask.STRING);
+    if(!args) return;
+    return args;
 }
 
 function success(message: string, done?: boolean | undefined) {
