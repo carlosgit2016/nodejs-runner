@@ -4,7 +4,7 @@
   "friendlyName": "Node JS Script Runner",
   "description": "Use this task in a build or release pipeline to run a JS script.",
   "author": "Carlos Flor",
-  "helpMarkDown": "Use this task in a build or release pipeline to run a JS script.",
+  "helpMarkDown": "[Learn more about this task](https://github.com/carlosgit2016/nodejs-runner) or [see the NodeJS Docs](https://nodejs.org/en/docs/)",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -27,34 +27,43 @@
       "options": {
         "FilePath": "FilePath",
         "Inline": "Inline"
-      }
+      },
+      "helpMarkDown": "Target script type, must be a file path or inline script"
     },
     {
       "name": "ScriptPath",
       "label": "Script path",
       "type": "filePath",
       "required": true,
-      "visibleRule": "ScriptSource = FilePath"
+      "visibleRule": "ScriptSource = FilePath",
+      "helpMarkDown": "Path of the script to execute, must be relative or absolute. [More Information](https://github.com/carlosgit2016/nodejs-runner#arguments) "
     },
     {
       "name": "InlineScript",
       "label": "Inline Script",
       "type": "multiLine",
       "required": true,
-      "visibleRule": "ScriptSource = Inline"
+      "visibleRule": "ScriptSource = Inline",
+      "properties": {
+        "resizable": "true",
+        "rows": "15"
+      },
+      "helpMarkDown": "Source code to execute, the task create a temp file to execute. [More Information](https://github.com/carlosgit2016/nodejs-runner#inline-execution)"
     },
     {
       "name": "Arguments",
       "label": "Arguments",
       "type": "string",
-      "required": false
+      "required": false,
+      "helpMarkDown": "Arguments passed to the script execution. [More Information](https://github.com/carlosgit2016/nodejs-runner#arguments)"
     },
     {
       "name": "WorkingDirectory",
       "label": "Working directory",
       "type": "filePath",
       "required": false,
-      "groupName": "Advanced"
+      "groupName": "Advanced",
+      "helpMarkDown": "The path where the script file runs, if empty the default path is $(System.DefaultWorkingDirectory). [More Information](https://github.com/carlosgit2016/nodejs-runner#arguments)"
     }
   ],
   "groups": [
