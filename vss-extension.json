@@ -2,19 +2,28 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "Node JS Script Runner",
-    "version": "0.5.3",
+    "version": "0.6.4",
     "publisher": "CARLOSFLOR",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
+    ],
     "description": "Use this task in a build or release pipeline to run a JS script.",
     "categories": [
         "Azure Pipelines"
     ],
     "icons": {
-        "default": "images/extension-icon.png"        
+        "default": "images/extension-icon.png"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
     },
     "files": [
         {
@@ -32,5 +41,9 @@
                 "name": "buildAndReleaseTask"
             }
         }
+    ],
+    "galleryFlags": [
+        "Preview"
     ]
+
 }
