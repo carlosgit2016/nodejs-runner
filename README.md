@@ -24,3 +24,6 @@ Temp directory is stored in [$(Agent.TempDirectory)](https://docs.microsoft.com/
 [v0.4.2](https://github.com/carlosgit2016/nodejs-runner/releases/tag/v0.4.2) Change the working directory of the script by placing the path in the task field.
 
 [v0.3.2](https://github.com/carlosgit2016/nodejs-runner/releases/tag/v0.3.2) Pass arguments to the script using the Arguments task field.
+
+## Images
+Images can be found in [iconnin.com](https://www.iconninja.com/tag/nodejs-icon)
