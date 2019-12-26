@@ -1,7 +1,7 @@
 {
   "id": "6f432af8-1146-11ea-9a9f-362b9e155667",
   "name": "NodeJSRunner",
-  "friendlyName": "Node JS Script Runner",
+  "friendlyName": "NodeJS Script Runner",
   "description": "Use this task in a build or release pipeline to run a JS script.",
   "author": "Carlos Flor",
   "helpMarkDown": "[Learn more about this task](https://github.com/carlosgit2016/nodejs-runner) or [see the NodeJS Docs](https://nodejs.org/en/docs/)",
