@@ -2,8 +2,9 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "Node JS Script Runner",
-    "version": "0.5.3",
+    "version": "0.6.4",
     "publisher": "CARLOSFLOR",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -40,5 +41,9 @@
                 "name": "buildAndReleaseTask"
             }
         }
+    ],
+    "galleryFlags": [
+        "Preview"
     ]
+
 }
