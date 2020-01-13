@@ -57,7 +57,7 @@ function success(message: string, done?: boolean | undefined) {
 }
 
 function fail(message: string, done?: boolean | undefined) {
-    tl.logIssue(tl.IssueType.Error, message, done);
+    tl.setResult(tl.TaskResult.Failed, message, done);
 }
 
 function getVariableValue(name: string, required?: boolean, type?: TypeFieldTask): string | undefined {
