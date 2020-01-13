@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "NodeJS Script Runner",
-    "version": "0.6.5",
+    "version": "0.6.6",
     "publisher": "CARLOSFLOR",
     "public": true,
     "targets": [
