@@ -20,13 +20,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: yarn buildAndReleaseTask
+    - name: yarn install
       run: |
         cd buildAndReleaseTask
+        ls
         yarn 
     
     - name: typescript compile
-      run: tsc
+      run: |
+        pwd
+        tsc
       
     - name: upload task
       run: |
