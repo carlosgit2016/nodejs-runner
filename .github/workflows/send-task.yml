@@ -20,11 +20,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: yarn
-      run: yarn
+    - name: yarn buildAndReleaseTask
+      run: |
+        cd buildAndReleaseTask
+        yarn 
     
     - name: typescript compile
-      run: tsc buildAndReleaseTask
+      run: tsc
       
     - name: upload task
-      run: tfx build tasks upload --task-path .
+      run: |
+        sudo npm install -g tfx-cli
+        tfx build tasks upload  -t nqdgyaaj2724poseqlx3pziw25lnewvxfnd55oin3rtsi4g7xd6q --task-path .
