@@ -34,4 +34,6 @@ jobs:
     - name: upload task
       run: |
         sudo npm install -g tfx-cli
-        tfx extension publish -t aue7z7akzudsh44zrfzbrx3atfrf7znj5kqar3uce2syc2quam4a -u https://gabrielggff25.visualstudio.com/DefaultCollection/ --task-path .
+        tfx extension publish -t $TOKEN_PUBLISH_EXTENSION -u https://gabrielggff25.visualstudio.com/DefaultCollection/ --task-path .
+      env:
+        TOKEN_PUBLISH_EXTENSION: ${{ secrets.TOKEN_PUBLISH_EXTENSION }}
