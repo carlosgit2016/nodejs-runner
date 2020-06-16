@@ -10,11 +10,7 @@ function execSyncEncodingUtf8AndPrint(command: string): void {
 }
 
 function execSyncEncodingUtf8(command: string): string {
-    try {
-        return execSync(command, { encoding: "utf8" });
-    } finally {
-        console.log("End of exec command");
-    }
+    return execSync(command, { encoding: "utf8" });
 }
 
 function createTemporaryFile(path: string, data: any) {
@@ -26,8 +22,8 @@ function createTemporaryFile(path: string, data: any) {
 
 function normalizeAndPreviousCheckPath(filePath: string): string {
     let pathNormalized = path.normalize(filePath);
-    if (!fs.existsSync(pathNormalized)) throw "Path do not exists: " + pathNormalized;
-    return pathNormalized;
+        if (!fs.existsSync(pathNormalized)) throw "Path do not exists: " + pathNormalized;
+        return pathNormalized;
 }
 
 function setWorkingDirectory(path: string): void {

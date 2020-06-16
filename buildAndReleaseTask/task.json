@@ -20,7 +20,7 @@
   "instanceNameFormat": "NodeJSRunner $(message)",
   "inputs": [
     {
-      "name": "ScriptSource",
+      "name": "scriptSource",
       "label": "Script Source",
       "type": "radio",
       "defaultValue": "FilePath",
@@ -31,19 +31,19 @@
       "helpMarkDown": "Target script type, must be a file path or inline script"
     },
     {
-      "name": "ScriptPath",
+      "name": "scriptPath",
       "label": "Script path",
       "type": "filePath",
       "required": true,
-      "visibleRule": "ScriptSource = FilePath",
+      "visibleRule": "scriptSource = FilePath",
       "helpMarkDown": "Path of the script to execute, must be relative or absolute. [More Information](https://github.com/carlosgit2016/nodejs-runner#arguments) "
     },
     {
-      "name": "InlineScript",
+      "name": "inlineScript",
       "label": "Inline Script",
       "type": "multiLine",
       "required": true,
-      "visibleRule": "ScriptSource = Inline",
+      "visibleRule": "scriptSource = Inline",
       "properties": {
         "resizable": "true",
         "rows": "15"
@@ -51,14 +51,14 @@
       "helpMarkDown": "Source code to execute, the task create a temp file to execute. [More Information](https://github.com/carlosgit2016/nodejs-runner#inline-execution)"
     },
     {
-      "name": "Arguments",
+      "name": "arguments",
       "label": "Arguments",
       "type": "string",
       "required": false,
       "helpMarkDown": "Arguments passed to the script execution. [More Information](https://github.com/carlosgit2016/nodejs-runner#arguments)"
     },
     {
-      "name": "WorkingDirectory",
+      "name": "workingDirectory",
       "label": "Working directory",
       "type": "filePath",
       "required": false,
