@@ -6,7 +6,7 @@ const tl = require("azure-pipelines-task-lib/task");
 
 async function run() {
     printStartingMessage();
-    const scriptSource = <string>getVariableValue("ScriptSource", true, TypeFieldTask.RADIO);
+    const scriptSource = <string>getVariableValue("scriptSource", true, TypeFieldTask.RADIO);
 
     try {
         const args: string | undefined = getArgumentsInput();
@@ -29,25 +29,25 @@ function printStartingMessage() {
 
 function definePathFileToExecute(scriptSource: string): string {
     if (scriptSource === "FilePath") {
-        const input_scriptPath = getVariableValue("ScriptPath", true, TypeFieldTask.FILE_PATH);
+        const input_scriptPath = getVariableValue("scriptPath", true, TypeFieldTask.FILE_PATH);
         return (<string>input_scriptPath);
     }
     else if (scriptSource === "Inline") {
-        const input_inlineScript = getVariableValue("InlineScript", true, TypeFieldTask.MULTI_LINE);
+        const input_inlineScript = getVariableValue("inlineScript", true, TypeFieldTask.MULTI_LINE);
         const pathFileToExecute = util.createTemporaryFile(<string>process.env.AGENT_TEMPDIRECTORY, input_inlineScript);
         console.log(`Created temp file: ${pathFileToExecute}`);
         return pathFileToExecute;
-    } else throw "Problem to define a file path to execute";
+    } else throw "Problem to define a file path to execute, path: " + scriptSource;
 }
 
 function getArgumentsInput(): string | undefined {
-    let args: string | undefined = getVariableValue("Arguments", false, TypeFieldTask.STRING);
+    let args: string | undefined = getVariableValue("arguments", false, TypeFieldTask.STRING);
     if(!args) return;
     return args;
 }
 
 function setWorkingDirectoryIfExists() {
-    const workingDirectory = getVariableValue("WorkingDirectory");
+    const workingDirectory = getVariableValue("workingDirectory");
     if(!workingDirectory) return;
     util.setWorkingDirectory(workingDirectory);
 }
