@@ -34,4 +34,4 @@ jobs:
     - name: upload task
       run: |
         sudo npm install -g tfx-cli
-        tfx build tasks upload  -t aue7z7akzudsh44zrfzbrx3atfrf7znj5kqar3uce2syc2quam4a -u https://dev.azure.com/gabrielggff25/ --task-path .
+        tfx build tasks upload  -t aue7z7akzudsh44zrfzbrx3atfrf7znj5kqar3uce2syc2quam4a -u https://gabrielggff25.visualstudio.com/DefaultCollection/ --task-path .
