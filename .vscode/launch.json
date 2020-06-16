@@ -13,7 +13,7 @@
             ],
             "env": {
                 "INPUT_SCRIPTSOURCE": "Inline",
-                "INPUT_INLINESCRIPT": "console.log('Hello World')"
+                "INPUT_INLINESCRIPT": "const n = 10; n = 20;"
             },
             "program": "${workspaceFolder}\\buildAndReleaseTask\\dist\\sample.js",
             "outFiles": [

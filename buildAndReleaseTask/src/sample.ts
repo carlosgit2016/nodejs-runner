@@ -37,7 +37,7 @@ function definePathFileToExecute(scriptSource: string): string {
         const pathFileToExecute = util.createTemporaryFile(<string>process.env.AGENT_TEMPDIRECTORY, input_inlineScript);
         console.log(`Created temp file: ${pathFileToExecute}`);
         return pathFileToExecute;
-    } else throw "Problem to define a file path to execute";
+    } else throw "Problem to define a file path to execute, path: " + scriptSource;
 }
 
 function getArgumentsInput(): string | undefined {
