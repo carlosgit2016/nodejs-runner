@@ -28,7 +28,7 @@ jobs:
     
     - name: typescript compile
       run: |
-        pwd
+        cd buildAndReleaseTask
         tsc
       
     - name: upload task
